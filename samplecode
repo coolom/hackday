@@ -1,0 +1,20 @@
+import tweepy
+
+consumer_key = 'G1i6DPo4LaZVPFnzk2FxzuMTw'
+consumer_secret = 'F2TpCatVbVdyLMiV1bLkVwcNZIjvfqx3uWoGCufTGG9Ok67RNl'
+access_key = '1334539797432573952-1EKIOGWkBorThQkyfnM2JOSMpcx3S5'
+access_key_secret = 'UzKv1f0jNez8gyeEUSJFXZk8fi04cd77VdteY1uhXEUi4'
+
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_key, access_key_secret)
+
+api = tweepy.API(auth)
+
+user = api.get_user('donald')
+
+public_tweets = api.home_timeline()
+for tweet in public_tweets:
+    print(tweet.text)
+
+
